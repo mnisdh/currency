@@ -24,8 +24,9 @@ class WebSecurityConfig(
         http.csrf().disable()
 
         http.authorizeRequests()
-            .antMatchers("/api/members/signup", "/api/members/signin").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
+//            .antMatchers("/api/members/signup", "/api/members/signin").permitAll()
+//            .anyRequest().authenticated()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
