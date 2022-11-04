@@ -10,7 +10,6 @@ dependencies {
     implementation(project(":utils"))
 
     implementation("org.springframework.boot:spring-boot-starter-security:2.7.5")
-    implementation("org.springframework.boot:spring-boot-starter-web:2.7.5")
 
     runtimeOnly("com.h2database:h2:2.1.214")
 

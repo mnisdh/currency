@@ -1,4 +1,4 @@
-package com.mnisdh.utils.jsoup
+package com.mnisdh.utils.rest
 
 open class JsoupUtil {
 

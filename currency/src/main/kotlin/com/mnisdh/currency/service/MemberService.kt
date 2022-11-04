@@ -1,6 +1,6 @@
 package com.mnisdh.currency.service
 
-import com.mnisdh.currency.domain.member.ReqSignin
+import com.mnisdh.currency.domain.member.SigninRequest
 import com.mnisdh.currency.jwt.JwtUtils
 import com.mnisdh.currency.repository.MemberRepository
 import org.springframework.security.authentication.AuthenticationManager
@@ -19,18 +19,18 @@ class MemberService(
 ) {
 
     @Transactional(readOnly = true)
-    fun signin(reqSignin: ReqSignin): String {
+    fun signin(request: SigninRequest): String {
         try {
             // 인증시도
             authenticationManager.authenticate(
-                UsernamePasswordAuthenticationToken(reqSignin.username, reqSignin.password, null)
+                UsernamePasswordAuthenticationToken(request.username, request.password, null)
             )
         } catch (e: BadCredentialsException) {
             throw BadCredentialsException("로그인 실패")
         }
         // 예외가 발생하지 않았다면 인증에 성공한 것.
         // 토큰 생성
-        val token = jwtUtils.createToken(reqSignin.username)
+        val token = jwtUtils.createToken(request.username)
 
         return token
     }

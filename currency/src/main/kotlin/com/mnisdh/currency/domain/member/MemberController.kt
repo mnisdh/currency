@@ -11,7 +11,7 @@ class MemberController(
 ) {
 
     @PostMapping("/signin")
-    fun signin(@RequestBody reqSignin: ReqSignin)= ResponseEntity.ok().body(service.signin(reqSignin))
+    fun signin(@RequestBody request: SigninRequest)= ResponseEntity.ok().body(service.signin(request))
 
     @GetMapping
     fun test()= ResponseEntity.ok().body("123")

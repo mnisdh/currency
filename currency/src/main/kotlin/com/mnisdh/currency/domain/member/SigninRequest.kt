@@ -1,6 +1,6 @@
 package com.mnisdh.currency.domain.member
 
-data class ReqSignin(
+data class SigninRequest(
     val username: String,
     val password: String,
 )
