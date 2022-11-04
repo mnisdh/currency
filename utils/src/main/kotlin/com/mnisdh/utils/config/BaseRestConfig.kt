@@ -12,14 +12,14 @@ import org.springframework.web.client.RestTemplate
 class BaseRestConfig {
 
     @Bean
-    fun getObjectMapper(): ObjectMapper {
+    fun objectMapper(): ObjectMapper {
         val objectMapper = ObjectMapper()
 
         return objectMapper
     }
 
     @Bean
-    fun getRestTempleate(): RestTemplate {
+    fun restTempleate(): RestTemplate {
         val headers = HttpHeaders()
         headers.contentType = MediaType.APPLICATION_JSON
 

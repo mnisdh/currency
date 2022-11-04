@@ -5,7 +5,7 @@ import org.springframework.boot.runApplication
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 
 @EnableJpaAuditing
-@SpringBootApplication(scanBasePackages = ["com.mnisdh.utils"])
+@SpringBootApplication(scanBasePackages = ["com.mnisdh.utils", "com.mnisdh.currency"])
 class CurrencyApplication
 
 fun main(args: Array<String>) {

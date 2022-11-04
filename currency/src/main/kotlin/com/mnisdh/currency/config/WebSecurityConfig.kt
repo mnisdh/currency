@@ -24,7 +24,7 @@ class WebSecurityConfig(
         http.csrf().disable()
 
         http.authorizeRequests()
-            .anyRequest().permitAll()
+            .antMatchers("/api/**").permitAll()
 //            .antMatchers("/api/members/signup", "/api/members/signin").permitAll()
 //            .anyRequest().authenticated()
             .and()

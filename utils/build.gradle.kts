@@ -18,6 +18,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+    implementation("org.apache.httpcomponents:httpclient:4.5.13")
+
     implementation("net.sourceforge.tess4j:tess4j:5.4.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.7.5")
