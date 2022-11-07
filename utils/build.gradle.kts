@@ -14,6 +14,8 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
     api("org.jsoup:jsoup:1.15.3")
 
+    api("org.springframework.boot:spring-boot-starter-log4j2")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -24,4 +26,9 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.7.5")
     testImplementation("org.springframework.security:spring-security-test:5.7.3")
+}
+
+configurations.forEach {
+    it.exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+    it.exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
 }

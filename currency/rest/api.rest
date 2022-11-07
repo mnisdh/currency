@@ -1,0 +1,7 @@
+
+### yahoo
+GET http://localhost:8080/api/currency/yahoo
+Accept: application/json
+
+
+

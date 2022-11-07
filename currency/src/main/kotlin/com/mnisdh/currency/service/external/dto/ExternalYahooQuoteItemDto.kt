@@ -1,6 +1,6 @@
 package com.mnisdh.currency.service.external.dto
 
-data class ExternalYahooQuoteItemResponse(
+data class ExternalYahooQuoteItemDto(
     val language: String?,
     val region: String?,
     val quoteType: String?,

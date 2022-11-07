@@ -23,3 +23,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.7.5")
     testImplementation("org.springframework.security:spring-security-test:5.7.3")
 }
+
+configurations.forEach {
+    it.exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+    it.exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
+}

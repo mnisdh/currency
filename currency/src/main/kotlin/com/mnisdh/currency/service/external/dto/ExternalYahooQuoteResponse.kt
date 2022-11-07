@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class ExternalYahooQuoteResponse(
 
-    @JsonProperty("result")
-    val items: List<ExternalYahooQuoteItemResponse>?,
+    @JsonProperty("quoteResponse")
+    val result: ExternalYahooQuoteResultDto?,
     val error: Any? = null
 
 )

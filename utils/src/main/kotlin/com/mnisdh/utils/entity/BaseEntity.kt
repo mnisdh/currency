@@ -14,10 +14,10 @@ abstract class BaseEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    protected val createdAt: LocalDateTime = LocalDateTime.now()
+    protected open val createdAt: LocalDateTime = LocalDateTime.now()
 
     @LastModifiedDate
     @Column(nullable = false)
-    protected var modifiedAt: LocalDateTime = LocalDateTime.now()
+    protected open var modifiedAt: LocalDateTime = LocalDateTime.now()
 
 }
