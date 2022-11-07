@@ -12,8 +12,8 @@ class ExternalYahooFinanceService(
 ) {
     private val currencyUrl: String = "https://query1.finance.yahoo.com/v7/finance/quote"
 
-    fun getCurrency(from: CurrencyType, to: CurrencyType): ExternalYahooQuoteResponse? {
-        val symbol = CurrencyType.symbol(from, to, InstitutionType.YAHOO)
+    fun getCurrency(currencyType: CurrencyType): ExternalYahooQuoteResponse? {
+        val symbol = CurrencyType.symbol(currencyType, CurrencyType.KRW, InstitutionType.YAHOO)
         val url = "%s?&symbols=%s".format(currencyUrl, symbol)
 
         val result = restTemplate.getForEntity(url, ExternalYahooQuoteResponse::class.java)

@@ -1,6 +1,6 @@
 
-### yahoo
-GET http://localhost:8080/api/currency/yahoo
+### 환율조회
+GET http://localhost:8080/api/currency/WOORI/JPY
 Accept: application/json
 
 

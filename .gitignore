@@ -40,3 +40,4 @@ logs/Spring Log4j2 Test_2022-11-07_1.log.gz
 logs/Spring Log4j2 Test_2022-11-07_2.log.gz
 logs/Spring Log4j2 Test_2022-11-07_3.log.gz
 *.db
+/logs/
