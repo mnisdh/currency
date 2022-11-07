@@ -1,6 +1,6 @@
 
 ### 환율조회
-GET http://localhost:8080/api/currency/WOORI/JPY
+GET http://localhost:8080/api/currency/SHINHAN/JPY
 Accept: application/json
 
 

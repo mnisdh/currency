@@ -21,7 +21,7 @@ class CurrencyService(
         when(institutionType) {
             InstitutionType.YAHOO -> externalYahooFinanceService.getCurrency(currencyType)
             InstitutionType.WOORI -> externalWooriFinanceService.getCurrency(LocalDate.now(), currencyType)
-            InstitutionType.SHINHAN -> null
+            InstitutionType.SHINHAN -> externalShinhanFinanceService.getCurrency(LocalDate.now(), currencyType)
             InstitutionType.KB -> null
             else -> null
         }
