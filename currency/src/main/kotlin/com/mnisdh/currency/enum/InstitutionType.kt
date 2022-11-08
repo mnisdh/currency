@@ -2,6 +2,6 @@ package com.mnisdh.currency.enum
 
 enum class InstitutionType {
 
-    YAHOO, KB, WOORI, SHINHAN
+    YAHOO, KBSTAR, WOORI, SHINHAN
 
 }

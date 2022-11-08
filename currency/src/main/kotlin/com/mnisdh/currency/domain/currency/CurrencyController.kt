@@ -19,10 +19,8 @@ class CurrencyController(
     fun getCurrency(
         @PathVariable("institution-type") institutionType: InstitutionType,
         @PathVariable("currency-type") currencyType: CurrencyType
-    ): ResponseEntity<ExternalYahooQuoteResponse> {
-        service.getCurrency(institutionType, currencyType)
-
-        return ResponseEntity.ok(null)
+    ): ResponseEntity<Any?> {
+        return ResponseEntity.ok(service.getCurrency(institutionType, currencyType))
     }
 
 }

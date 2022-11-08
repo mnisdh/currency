@@ -1,0 +1,55 @@
+
+
+### 실시간 환율 (엔화)
+GET https://query1.finance.yahoo.com/v7/finance/quote?symbols=JPYKRW=X
+
+
+### 실시간 환율 (달러)
+GET https://query1.finance.yahoo.com/v7/finance/quote?symbols=USDKRW=X
+
+
+### 신한은행 일자별 조회 (엔화)
+POST https://bank.shinhan.com/comjsp/dataProcess.jsp?svr_type=GU&svr_code=F3720
+Content-Type: application/json
+
+{"root_info":{"serviceType":"GU","serviceCode":"F3720","nextServiceCode":"","pkcs7Data":"","signCode":"","signData":"","useSign":"","useCert":"","permitMultiTransaction":"","keepTransactionSession":"","skipErrorMsg":"","mode":"","language":"ko","exe2e":"","hideProcess":"","clearTarget":"data:json,[{\"id\":\"dm_R_RIBF3720\",\"key\":\"R_RIBF3720\"},{\"id\":\"dl_R_RIBF3720_1\",\"key\":\"R_RIBF3720_1\"}]","callBack":"shbObj.fncF3720Callback","exceptionCallback":"","requestMessage":"","responseMessage":"","serviceOption":"","pcLog":"","preInqForMulti":"","makesum":"","removeIndex":"","redirectUrl":"","preInqKey":"","_multi_transfer_":"","_multi_transfer_count_":"","_multi_transfer_amt_":"","userCallback":"","menuCode":"","certtype":""},"S_RIBF3720":{"조회구분":"","조회일자":"20221028","통화코드":"JPY","고시구분":"","조회일자_display":"2022-10-28"}}
+
+
+### 신한은행 일자별 조회 (달러)
+POST https://bank.shinhan.com/comjsp/dataProcess.jsp?svr_type=GU&svr_code=F3720
+
+{"root_info":{"serviceType":"GU","serviceCode":"F3720","nextServiceCode":"","pkcs7Data":"","signCode":"","signData":"","useSign":"","useCert":"","permitMultiTransaction":"","keepTransactionSession":"","skipErrorMsg":"","mode":"","language":"ko","exe2e":"","hideProcess":"","clearTarget":"data:json,[{\"id\":\"dm_R_RIBF3720\",\"key\":\"R_RIBF3720\"},{\"id\":\"dl_R_RIBF3720_1\",\"key\":\"R_RIBF3720_1\"}]","callBack":"shbObj.fncF3720Callback","exceptionCallback":"","requestMessage":"","responseMessage":"","serviceOption":"","pcLog":"","preInqForMulti":"","makesum":"","removeIndex":"","redirectUrl":"","preInqKey":"","_multi_transfer_":"","_multi_transfer_count_":"","_multi_transfer_amt_":"","userCallback":"","menuCode":"","certtype":""},"S_RIBF3720":{"조회구분":"","조회일자":"20221028","통화코드":"USD","고시구분":"","조회일자_display":"2022-10-28"}}
+
+
+### 우리은행 일자별 조회 (엔화)
+POST https://sbiz.wooribank.com/biz/jcc?withyou=BZFXD0019&__ID=c008329
+Content-Type: application/x-www-form-urlencoded
+
+BAS_DT=20221028&NTC_DIS=A&INQ_DIS=JPY&NTC_DIS=A&SELECT_DATE=2022.10.28&SELECT_DATEY=2022&SELECT_DATEM=10&SELECT_DATED=28
+
+
+### 우리은행 일자별 조회 (달러)
+POST https://sbiz.wooribank.com/biz/jcc?withyou=BZFXD0019&__ID=c008329
+Content-Type: application/x-www-form-urlencoded
+
+BAS_DT=20221028&NTC_DIS=A&INQ_DIS=USD&NTC_DIS=A&SELECT_DATE=2022.10.28&SELECT_DATEY=2022&SELECT_DATEM=10&SELECT_DATED=28
+
+
+### 국민은행 일자별 조회 (엔화)
+POST https://obank.kbstar.com/quics?chgCompId=b103362&baseCompId=b103362&page=C101422&cc=b103362:b103362
+
+DocType=1&monyCd=JPY&selDate=20221028
+
+###DocType=1&고시회차기준=1&고시종류기준=0&조회기준=1&요청페이지=1&monyCd=JPY&selDate=20221028&고시통화명=일본+100+엔&기준일자=2022.10.28&기준일시=23:50:23&SEL_통화구분=JPY&조회일자구분=1&searchDate=20221028&startDate=20221024&endDate=20221031&고시회차선택=1&고시종류선택=0
+
+
+
+### 국민은행 일자별 조회 (달러)
+POST https://obank.kbstar.com/quics?chgCompId=b103362&baseCompId=b103362&page=C101422&cc=b103362:b103362
+
+btnClick=&DocType=1&통화코드=&조회년월일=&SiteName=&strFocusBtn=&고시회차기준=1&고시종류기준=0&조회기준=1&요청페이지=1&selDate1=&selDate2=&monyCd=USD&selDate=20221028&고시통화명=일본+100+엔&기준일자=2022.10.28&기준일시=23:50:23&SEL_통화구분=USD&조회일자구분=1&searchDate=20221028&startDate=20221024&endDate=20221031&고시회차선택=1&고시종류선택=0
+
+
+
+
+

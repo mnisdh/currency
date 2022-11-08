@@ -14,7 +14,7 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
     api("org.jsoup:jsoup:1.15.3")
 
-    api("org.springframework.boot:spring-boot-starter-log4j2")
+    api("org.springframework.boot:spring-boot-starter-log4j2:2.7.5")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

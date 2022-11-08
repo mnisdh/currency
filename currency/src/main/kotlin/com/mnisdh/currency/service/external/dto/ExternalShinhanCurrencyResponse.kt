@@ -5,7 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class ExternalShinhanCurrencyResponse(
     @JsonProperty(value = "R_RIBF3720_1")
     val result: List<ExternalShinhanCurrencyResultDto> = ArrayList()
-)
+) {
+    fun getLatest(): ExternalShinhanCurrencyResultDto {
+        return result.last()
+    }
+}
 
 data class ExternalShinhanCurrencyResultDto(
     @JsonProperty(value = "지폐매도환율")
