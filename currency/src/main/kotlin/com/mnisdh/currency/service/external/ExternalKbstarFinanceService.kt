@@ -2,6 +2,7 @@ package com.mnisdh.currency.service.external
 
 import com.mnisdh.currency.enum.CurrencyType
 import com.mnisdh.currency.service.external.dto.ExternalKbstarCurrencyRequest
+import com.mnisdh.currency.service.external.dto.ExternalKbstarCurrencyResponse
 import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyResponse
 import com.mnisdh.utils.data.StringUtil
 import org.jsoup.Jsoup
@@ -14,7 +15,7 @@ class ExternalKbstarFinanceService {
 
     private val currencyUrl: String = "https://obank.kbstar.com/quics"
 
-    fun getCurrency(targetDate: LocalDate, currencyType: CurrencyType): Any? {
+    fun getCurrency(targetDate: LocalDate, currencyType: CurrencyType): ExternalKbstarCurrencyResponse? {
         val request = ExternalKbstarCurrencyRequest.of(targetDate, currencyType)
 
         val doc = Jsoup.connect(currencyUrl)
@@ -23,34 +24,27 @@ class ExternalKbstarFinanceService {
             .header("Content-Type", "application/x-www-form-urlencoded")
             .post()
 
-        val items = doc.select("tbody").select("tr")
+        val items = doc.select("tbody").select("tr").select("td")
 
-        return items
+        val buyingSpreadRate: Float? = StringUtil.getFloat((items.get(4).childNode(0) as TextNode).text())
+        val sellingSpreadRate: Float? = StringUtil.getFloat((items.get(5).childNode(0) as TextNode).text())
+        val firstRate: Float? = StringUtil.getFloat((items.get(6).childNode(0) as TextNode).text())
+        val latestRate: Float? = StringUtil.getFloat((items.get(7).childNode(0) as TextNode).text())
+        val minOfDay: Float? = StringUtil.getFloat((items.get(8).childNode(0) as TextNode).text())
+        val maxOfDay: Float? = StringUtil.getFloat((items.get(9).childNode(0) as TextNode).text())
+        val minMaxGapOfDay: Float? = StringUtil.getFloat((items.get(10).childNode(0) as TextNode).text())
+        val averageOfDay: Float? = StringUtil.getFloat((items.get(11).childNode(0) as TextNode).text())
 
-//        val currencyName: String? = (items.get(1).childNode(0) as TextNode).text()
-//        val remittance: Float? = StringUtil.getFloat((items.get(2).childNode(0) as TextNode).text())
-//        val cash: Float? = StringUtil.getFloat((items.get(3).childNode(0) as TextNode).text())
-//        val salesStandardRate: Float? = StringUtil.getFloat((items.get(4).childNode(0) as TextNode).text())
-//        val baseExchangeRate: Float? = StringUtil.getFloat((items.get(5).childNode(0) as TextNode).text())
-//        val usConversionRate: Float? = StringUtil.getFloat((items.get(6).childNode(0) as TextNode).text())
-//        val send: Float? = StringUtil.getFloat((items.get(7).childNode(0) as TextNode).text())
-//        val receive: Float? = StringUtil.getFloat((items.get(8).childNode(0) as TextNode).text())
-//        val buyingSpreadRate: Float? = StringUtil.getFloat((items.get(9).childNode(0) as TextNode).text())
-//        val sellingSpreadRate: Float? = StringUtil.getFloat((items.get(10).childNode(0) as TextNode).text())
-//
-//        return ExternalWooriCurrencyResponse(
-//            currencyType = currencyType,
-//            currencyName = currencyName,
-//            remittance = remittance,
-//            cash = cash,
-//            salesStandardRate = salesStandardRate,
-//            baseExchangeRate = baseExchangeRate,
-//            usConversionRate = usConversionRate,
-//            send = send,
-//            receive = receive,
-//            buyingSpreadRate = buyingSpreadRate,
-//            sellingSpreadRate = sellingSpreadRate
-//        )
+        return ExternalKbstarCurrencyResponse(
+            buyingSpreadRate = buyingSpreadRate,
+            sellingSpreadRate = sellingSpreadRate,
+            firstRate = firstRate,
+            latestRate = latestRate,
+            minOfDay = minOfDay,
+            maxOfDay = maxOfDay,
+            minMaxGapOfDay = minMaxGapOfDay,
+            averageOfDay = averageOfDay
+        )
     }
 
 }
