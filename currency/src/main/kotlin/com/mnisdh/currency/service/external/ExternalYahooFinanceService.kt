@@ -5,6 +5,7 @@ import com.mnisdh.currency.enum.InstitutionType
 import com.mnisdh.currency.service.external.dto.ExternalYahooQuoteResponse
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
+import java.time.LocalDate
 
 @Service
 class ExternalYahooFinanceService(
@@ -12,8 +13,8 @@ class ExternalYahooFinanceService(
 ) {
     private val currencyUrl: String = "https://query1.finance.yahoo.com/v7/finance/quote"
 
-    fun getCurrency(currencyType: CurrencyType): ExternalYahooQuoteResponse? {
-        val symbol = CurrencyType.symbol(currencyType, CurrencyType.KRW, InstitutionType.YAHOO)
+    fun getCurrency(baseCurrencyType: CurrencyType, exchangeCurrencyType: CurrencyType, exchangeDate: LocalDate): ExternalYahooQuoteResponse? {
+        val symbol = InstitutionType.YAHOO.symbol(exchangeCurrencyType, baseCurrencyType)
         val url = "%s?&symbols=%s".format(currencyUrl, symbol)
 
         val result = restTemplate.getForEntity(url, ExternalYahooQuoteResponse::class.java)

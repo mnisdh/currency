@@ -31,6 +31,7 @@ class WebSecurityConfig(
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
+            .headers().frameOptions().disable()
 
         return http.build()
     }

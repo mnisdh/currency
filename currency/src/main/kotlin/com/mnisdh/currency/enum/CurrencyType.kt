@@ -1,49 +1,30 @@
 package com.mnisdh.currency.enum
 
-enum class CurrencyType {
-    USD {
-        override fun getName(institutionType: InstitutionType): String {
-            return when(institutionType) {
-                InstitutionType.YAHOO -> "USD"
-                InstitutionType.KBSTAR -> "USD"
-                InstitutionType.WOORI -> "USD"
-                InstitutionType.SHINHAN -> "USD"
-                else -> "USD"
-            }
-        }
-    },
-    KRW{
-        override fun getName(institutionType: InstitutionType): String {
-            return when(institutionType) {
-                InstitutionType.YAHOO -> "KRW"
-                InstitutionType.KBSTAR -> "KRW"
-                InstitutionType.WOORI -> "KRW"
-                InstitutionType.SHINHAN -> "KRW"
-                else -> "KRW"
-            }
-        }
-    },
-    JPY{
-        override fun getName(institutionType: InstitutionType): String {
-            return when(institutionType) {
-                InstitutionType.YAHOO -> "JPY"
-                InstitutionType.KBSTAR -> "JPY"
-                InstitutionType.WOORI -> "JPY"
-                InstitutionType.SHINHAN -> "JPY"
-                else -> "JPY"
-            }
-        }
-    };
+import com.mnisdh.common.enums.BaseEnum
 
-    abstract fun getName(institutionType: InstitutionType): String
+enum class CurrencyType(
+    private val label: String,
+    private val description: String = label
+): BaseEnum {
+    NONE("없음"),
+    USD("달러"),
+    KRW("원화"),
+    JPY("엔화");
+
+    override fun getLabel() = this.label
+    override fun getDescription() = this.description
 
     companion object {
-        fun symbol(from: CurrencyType, to: CurrencyType, institutionType: InstitutionType): String {
-            return when(institutionType) {
-                InstitutionType.YAHOO -> "%s%s=X".format(from.getName(institutionType), to.getName(institutionType))
-                else -> "%s%s".format(from.getName(institutionType), to.getName(institutionType))
-            }
+        fun allows(): List<CurrencyType> {
+            return values().filter { it != NONE }.toList()
         }
+        fun allowsByExcept(excepts: Set<CurrencyType>): List<CurrencyType> {
+            return values().filter { it != NONE && !excepts.contains(it) }.toList()
+        }
+    }
+
+    fun getName(institutionType: InstitutionType): String {
+        return this.name
     }
 
 }

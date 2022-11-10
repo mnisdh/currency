@@ -1,4 +1,4 @@
-package com.mnisdh.utils.data
+package com.mnisdh.common.util
 
 import java.time.LocalDate
 import java.time.LocalDateTime

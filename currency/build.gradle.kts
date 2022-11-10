@@ -4,10 +4,11 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt") version "1.7.21"
 }
 
 dependencies {
-    implementation(project(":utils"))
+    implementation(project(":common"))
 
     implementation("org.springframework.boot:spring-boot-starter-security:2.7.5")
 
@@ -15,6 +16,10 @@ dependencies {
 
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
     api("io.jsonwebtoken:jjwt:0.9.1")
+
+    api("com.querydsl:querydsl-jpa:5.0.0")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

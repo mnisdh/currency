@@ -1,4 +1,4 @@
-package com.mnisdh.utils.entity
+package com.mnisdh.common.jpa
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
@@ -14,10 +14,12 @@ abstract class BaseEntity {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    protected open val createdAt: LocalDateTime = LocalDateTime.now()
+    open var createdAt: LocalDateTime = LocalDateTime.now()
+        protected set
 
     @LastModifiedDate
     @Column(nullable = false)
-    protected open var modifiedAt: LocalDateTime = LocalDateTime.now()
+    open var modifiedAt: LocalDateTime = LocalDateTime.now()
+        protected set
 
 }

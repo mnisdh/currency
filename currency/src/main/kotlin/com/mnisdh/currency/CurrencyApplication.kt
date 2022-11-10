@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 
 @EnableScheduling
 @EnableJpaAuditing
-@SpringBootApplication(scanBasePackages = ["com.mnisdh.utils", "com.mnisdh.currency"])
+@SpringBootApplication(scanBasePackages = ["com.mnisdh.common", "com.mnisdh.currency"])
 class CurrencyApplication
 
 fun main(args: Array<String>) {

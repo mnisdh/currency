@@ -1,4 +1,4 @@
 rootProject.name = "mnisdh"
 
-include("utils")
+include("common")
 include("currency")

@@ -1,6 +1,6 @@
 package com.mnisdh.currency.entity
 
-import com.mnisdh.utils.entity.BaseEntity
+import com.mnisdh.common.jpa.BaseEntity
 import javax.persistence.*
 
 @Entity
@@ -13,7 +13,7 @@ open class Member(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    open val id: Long? = null
+    val id: Long? = null
 
     @Column(nullable = false)
     open var username: String = name

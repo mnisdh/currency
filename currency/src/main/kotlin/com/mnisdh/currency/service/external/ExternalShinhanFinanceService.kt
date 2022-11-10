@@ -19,9 +19,9 @@ class ExternalShinhanFinanceService(
 ) {
     private val currencyUrl: String = "https://bank.shinhan.com/comjsp/dataProcess.jsp"
 
-    fun getCurrency(targetDate: LocalDate, currencyType: CurrencyType): ExternalShinhanCurrencyResultDto? {
+    fun getCurrency(currencyType: CurrencyType, exchangeDate: LocalDate): ExternalShinhanCurrencyResponse? {
         val url = "%s?svr_type=GU&svr_code=F3720".format(currencyUrl)
-        val request = ExternalShinhanCurrencyRequest.of(targetDate, currencyType)
+        val request = ExternalShinhanCurrencyRequest.of(exchangeDate, currencyType)
 
         restTemplate.interceptors.add(ClientHttpRequestInterceptor { request: HttpRequest?, body: ByteArray?, execution: ClientHttpRequestExecution ->
             val response: ClientHttpResponse = execution.execute(
@@ -33,7 +33,7 @@ class ExternalShinhanFinanceService(
 
         val result = restTemplate.postForEntity(url, request, ExternalShinhanCurrencyResponse::class.java)
 
-        return result.body?.getLatest()
+        return result.body
     }
 
 }

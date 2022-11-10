@@ -3,7 +3,7 @@ package com.mnisdh.currency.service.external
 import com.mnisdh.currency.enum.CurrencyType
 import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyRequest
 import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyResponse
-import com.mnisdh.utils.data.StringUtil
+import com.mnisdh.common.util.StringUtil
 import org.jsoup.Jsoup
 import org.jsoup.nodes.TextNode
 import org.springframework.stereotype.Service
@@ -14,8 +14,8 @@ class ExternalWooriFinanceService {
 
     private val currencyUrl: String = "https://sbiz.wooribank.com/biz/jcc"
 
-    fun getCurrency(targetDate: LocalDate, currencyType: CurrencyType): ExternalWooriCurrencyResponse {
-        val request = ExternalWooriCurrencyRequest.of(targetDate, currencyType)
+    fun getCurrency(currencyType: CurrencyType, exchangeDate: LocalDate): ExternalWooriCurrencyResponse {
+        val request = ExternalWooriCurrencyRequest.of(exchangeDate, currencyType)
 
         val doc = Jsoup.connect(currencyUrl)
             .data("withyou", "BZFXD0019", "__ID", "c008329")

@@ -1,6 +1,8 @@
 package com.mnisdh.currency.service.external.dto
 
 import com.mnisdh.currency.enum.CurrencyType
+import com.mnisdh.currency.service.dto.CurrencyDto
+import java.time.LocalDate
 
 data class ExternalWooriCurrencyResponse(
     val currencyType: CurrencyType, //통화표시
@@ -14,4 +16,10 @@ data class ExternalWooriCurrencyResponse(
     val receive: Float? = null, //받으실때
     val buyingSpreadRate: Float? = null, //사실때(스프레드율)
     val sellingSpreadRate: Float? = null //파실때(스프레드율)
-)
+): BaseExternalCurrency {
+
+    override fun to(exchangeDate: LocalDate, baseCurrencyType: CurrencyType, exchangeCurrencyType: CurrencyType): CurrencyDto {
+        return CurrencyDto.of(this, exchangeDate, baseCurrencyType, exchangeCurrencyType)
+    }
+
+}

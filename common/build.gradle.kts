@@ -7,6 +7,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt") version "1.7.21"
 }
 
 dependencies {
@@ -15,6 +16,11 @@ dependencies {
     api("org.jsoup:jsoup:1.15.3")
 
     api("org.springframework.boot:spring-boot-starter-log4j2:2.7.5")
+
+    api("com.querydsl:querydsl-jpa:5.0.0")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

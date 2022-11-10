@@ -1,4 +1,4 @@
-package com.mnisdh.utils.ocr
+package com.mnisdh.common.ocr
 
 import net.sourceforge.tess4j.Tesseract
 import org.springframework.http.MediaType

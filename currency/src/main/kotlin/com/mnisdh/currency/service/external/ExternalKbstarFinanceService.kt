@@ -3,8 +3,7 @@ package com.mnisdh.currency.service.external
 import com.mnisdh.currency.enum.CurrencyType
 import com.mnisdh.currency.service.external.dto.ExternalKbstarCurrencyRequest
 import com.mnisdh.currency.service.external.dto.ExternalKbstarCurrencyResponse
-import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyResponse
-import com.mnisdh.utils.data.StringUtil
+import com.mnisdh.common.util.StringUtil
 import org.jsoup.Jsoup
 import org.jsoup.nodes.TextNode
 import org.springframework.stereotype.Service
@@ -15,8 +14,8 @@ class ExternalKbstarFinanceService {
 
     private val currencyUrl: String = "https://obank.kbstar.com/quics"
 
-    fun getCurrency(targetDate: LocalDate, currencyType: CurrencyType): ExternalKbstarCurrencyResponse? {
-        val request = ExternalKbstarCurrencyRequest.of(targetDate, currencyType)
+    fun getCurrency(currencyType: CurrencyType, exchangeDate: LocalDate): ExternalKbstarCurrencyResponse? {
+        val request = ExternalKbstarCurrencyRequest.of(exchangeDate, currencyType)
 
         val doc = Jsoup.connect(currencyUrl)
             .data("chgCompId", "b103362", "baseCompId", "b103362", "page", "C101422", "cc", "b103362:b103362")

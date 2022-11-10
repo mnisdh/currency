@@ -1,4 +1,4 @@
-package com.mnisdh.utils.data
+package com.mnisdh.common.util
 
 class StringUtil {
 
