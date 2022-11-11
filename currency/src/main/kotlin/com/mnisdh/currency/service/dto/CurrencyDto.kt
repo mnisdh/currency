@@ -1,8 +1,8 @@
 package com.mnisdh.currency.service.dto
 
 import com.mnisdh.currency.entity.Currency
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.mnisdh.currency.service.external.dto.*
 import java.time.LocalDate
 
@@ -37,9 +37,9 @@ data class CurrencyDto(
             baseCurrencyType = baseCurrencyType,
             exchangeCurrencyType = exchangeCurrencyType,
             exchangeDate = exchangeDate,
-            exchangeRate = response.exchangeRate ?: 0f,
-            buyingSpreadRate = response.ttBuyingRate,
-            sellingSpreadRate = response.ttSellingRate
+            exchangeRate = response.getExchangeRate() ?: 0f,
+            buyingSpreadRate = response.getTtBuyingRate(),
+            sellingSpreadRate = response.getTtSellingRate()
         )
         fun of(response: ExternalKbstarCurrencyResponse, exchangeDate: LocalDate, baseCurrencyType: CurrencyType, exchangeCurrencyType: CurrencyType): CurrencyDto = CurrencyDto(
             institutionType = InstitutionType.KBSTAR,

@@ -1,7 +1,7 @@
 package com.mnisdh.currency.service.external.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.mnisdh.currency.enum.CurrencyType
+import com.mnisdh.currency.enums.CurrencyType
 import com.mnisdh.currency.service.dto.CurrencyDto
 import com.mnisdh.common.exception.BaseNotFoundException
 import java.time.LocalDate

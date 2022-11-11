@@ -15,12 +15,12 @@ open class MemberSocial(
     val id: Long? = null
 
     @Column(nullable = false)
-    open var name: String = name
+    var name: String = name
         protected set
 
     @ManyToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "member_id", foreignKey = ForeignKey(name = "fk_member_social_member"))
-    open var member: Member? = null
+    var member: Member? = null
 
     fun updateMember(member: Member?) {
         this.member = member

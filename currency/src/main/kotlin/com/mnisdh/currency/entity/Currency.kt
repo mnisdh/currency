@@ -1,37 +1,37 @@
 package com.mnisdh.currency.entity
 
 import com.mnisdh.common.jpa.BaseEntity
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
 @Table
-open class Currency(
+class Currency(
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    open val institutionType: InstitutionType = InstitutionType.NONE,
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    open val baseCurrencyType: CurrencyType = CurrencyType.NONE,
+    val institutionType: InstitutionType = InstitutionType.NONE,
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    open val exchangeCurrencyType: CurrencyType = CurrencyType.NONE,
+    val baseCurrencyType: CurrencyType = CurrencyType.NONE,
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    val exchangeCurrencyType: CurrencyType = CurrencyType.NONE,
 
     @Column(nullable = false)
-    open val exchangeDate: LocalDate = LocalDate.MIN,
+    val exchangeDate: LocalDate = LocalDate.MIN,
 
     @Column(nullable = false)
-    open val exchangeRate: Float = Float.MIN_VALUE,
+    val exchangeRate: Float = Float.MIN_VALUE,
 
     @Column
-    open var buyingSpreadRate: Float? = null,
+    var buyingSpreadRate: Float? = null,
 
     @Column
-    open var sellingSpreadRate: Float? = null
+    var sellingSpreadRate: Float? = null
 ): BaseEntity() {
 
     @Id
@@ -41,13 +41,19 @@ open class Currency(
 
     companion object {
         fun create(institutionType: InstitutionType,
-        baseCurrencyType: CurrencyType,
-        exchangeCurrencyType: CurrencyType,
-        exchangeDate: LocalDate,
-        exchangeRate: Float,
-        buyingSpreadRate: Float? = null,
-        sellingSpreadRate: Float? = null): Currency = Currency(
-            institutionType, baseCurrencyType, exchangeCurrencyType, exchangeDate, exchangeRate, buyingSpreadRate, sellingSpreadRate
+                   baseCurrencyType: CurrencyType,
+                   exchangeCurrencyType: CurrencyType,
+                   exchangeDate: LocalDate,
+                   exchangeRate: Float,
+                   buyingSpreadRate: Float? = null,
+                   sellingSpreadRate: Float? = null): Currency = Currency(
+            institutionType = institutionType,
+            baseCurrencyType = baseCurrencyType,
+            exchangeCurrencyType = exchangeCurrencyType,
+            exchangeDate = exchangeDate,
+            exchangeRate = exchangeRate,
+            buyingSpreadRate = buyingSpreadRate,
+            sellingSpreadRate = sellingSpreadRate
         )
     }
 

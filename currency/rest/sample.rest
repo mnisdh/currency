@@ -54,4 +54,9 @@ btnClick=&DocType=1&통화코드=&조회년월일=&SiteName=&strFocusBtn=&고시
 ### 나무증권 (엔화, 달러)
 POST https://mdev.mynamuh.com/info/market/rate/exchangeData.json
 
-page=2&t=1667970046337
+size=10&t=1668218078000
+
+
+###
+&t=1667970046337
+

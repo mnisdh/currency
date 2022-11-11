@@ -3,8 +3,8 @@ package com.mnisdh.currency.repository
 import com.mnisdh.common.jpa.BaseQueryDslRepository
 import com.mnisdh.currency.entity.Currency
 import com.mnisdh.currency.entity.QCurrency
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.querydsl.jpa.impl.JPAQueryFactory
 import java.time.LocalDate
 
@@ -21,6 +21,9 @@ class CurrencyRepositoryImpl(jpaQueryFactory: JPAQueryFactory) : BaseQueryDslRep
         return jpaQueryFactory
             .selectFrom(currency)
             .where(
+                currency.institutionType.eq(institutionType),
+                currency.baseCurrencyType.eq(baseCurrencyType),
+                currency.exchangeCurrencyType.eq(exchangeCurrencyType),
                 currency.exchangeDate.eq(exchangeDate)
             )
             .fetchFirst()
@@ -35,7 +38,10 @@ class CurrencyRepositoryImpl(jpaQueryFactory: JPAQueryFactory) : BaseQueryDslRep
         return jpaQueryFactory
             .selectFrom(currency)
             .where(
-
+                currency.institutionType.eq(institutionType),
+                currency.baseCurrencyType.eq(baseCurrencyType),
+                currency.exchangeCurrencyType.eq(exchangeCurrencyType),
+                currency.exchangeDate.eq(exchangeDate)
             )
             .fetch()
     }

@@ -13,12 +13,12 @@ plugins {
 dependencies {
     api("org.springframework.boot:spring-boot-starter-web:2.7.5")
     api("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
-    api("org.jsoup:jsoup:1.15.3")
 
     api("org.springframework.boot:spring-boot-starter-log4j2:2.7.5")
 
     api("com.querydsl:querydsl-jpa:5.0.0")
     kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
@@ -32,6 +32,10 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.7.5")
     testImplementation("org.springframework.security:spring-security-test:5.7.3")
+}
+
+allOpen {
+    annotation("com.mnisdh.common.jpa.AllOpen")
 }
 
 configurations.forEach {

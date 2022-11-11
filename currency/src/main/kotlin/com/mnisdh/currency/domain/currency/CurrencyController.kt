@@ -1,7 +1,7 @@
 package com.mnisdh.currency.domain.currency
 
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.mnisdh.currency.service.CurrencyService
 import com.mnisdh.currency.service.dto.CurrencyDto
 import com.mnisdh.common.rest.DefaultResponse

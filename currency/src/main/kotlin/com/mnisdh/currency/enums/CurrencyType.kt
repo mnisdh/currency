@@ -1,4 +1,4 @@
-package com.mnisdh.currency.enum
+package com.mnisdh.currency.enums
 
 import com.mnisdh.common.enums.BaseEnum
 

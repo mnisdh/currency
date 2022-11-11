@@ -1,8 +1,8 @@
 package com.mnisdh.currency.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.mnisdh.currency.repository.CurrencyRepository
 import com.mnisdh.currency.service.dto.CurrencyDto
 import com.mnisdh.currency.service.external.ExternalKbstarFinanceService

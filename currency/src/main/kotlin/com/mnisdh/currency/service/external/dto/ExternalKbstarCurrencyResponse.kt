@@ -1,6 +1,6 @@
 package com.mnisdh.currency.service.external.dto
 
-import com.mnisdh.currency.enum.CurrencyType
+import com.mnisdh.currency.enums.CurrencyType
 import com.mnisdh.currency.service.dto.CurrencyDto
 import java.time.LocalDate
 

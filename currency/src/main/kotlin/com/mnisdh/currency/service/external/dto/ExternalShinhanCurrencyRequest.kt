@@ -1,8 +1,8 @@
 package com.mnisdh.currency.service.external.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.mnisdh.common.util.DateUtil
 import java.time.LocalDate
 

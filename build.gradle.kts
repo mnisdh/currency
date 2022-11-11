@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-//java.sourceCompatibility = JavaVersion.VERSION_17
-
 buildscript {
     repositories {
         mavenCentral()

@@ -1,6 +1,6 @@
 package com.mnisdh.currency.service.external
 
-import com.mnisdh.currency.enum.CurrencyType
+import com.mnisdh.currency.enums.CurrencyType
 import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyRequest
 import com.mnisdh.currency.service.external.dto.ExternalWooriCurrencyResponse
 import com.mnisdh.common.util.StringUtil

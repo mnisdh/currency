@@ -1,7 +1,7 @@
 package com.mnisdh.currency.service.external
 
-import com.mnisdh.currency.enum.CurrencyType
-import com.mnisdh.currency.enum.InstitutionType
+import com.mnisdh.currency.enums.CurrencyType
+import com.mnisdh.currency.enums.InstitutionType
 import com.mnisdh.currency.service.external.dto.ExternalYahooQuoteResponse
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate

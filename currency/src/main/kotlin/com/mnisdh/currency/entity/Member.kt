@@ -16,15 +16,15 @@ open class Member(
     val id: Long? = null
 
     @Column(nullable = false)
-    open var username: String = name
+    var username: String = name
         protected set
 
     @Column(nullable = false)
-    open var password: String = password
+    var password: String = password
         protected set
 
     @OneToMany(mappedBy = "member")
-    open val socials: MutableList<MemberSocial> = ArrayList()
+    val socials: MutableList<MemberSocial> = ArrayList()
 
     fun addSocial(social: MemberSocial) {
         this.socials.add(social)
