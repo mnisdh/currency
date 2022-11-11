@@ -9,7 +9,7 @@ data class ExternalYahooQuoteItemDto(
     val triggerable: Boolean?,
     val customPriceAlertConfidence: String?,
     val currency: String?,
-    val regularMarketPrice: Float?,
+    var regularMarketPrice: Float?,
     val regularMarketChangePercent: Float?,
     val marketState: String?,
     val gmtOffSetMilliseconds: Long?,

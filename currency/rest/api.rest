@@ -1,18 +1,18 @@
 
 ### 야후 환율조회
-GET http://localhost:8080/api/currency/YAHOO/JPY/2022-11-08
+GET http://localhost:8080/api/currency/YAHOO/JPY
 Accept: application/json
 
 ### 우리은행 환율조회
-GET http://localhost:8080/api/currency/WOORI/JPY/2022-11-08
+GET http://localhost:8080/api/currency/WOORI/JPY
 Accept: application/json
 
 ### 신한은행 환율조회
-GET http://localhost:8080/api/currency/SHINHAN/JPY/2022-11-08
+GET http://localhost:8080/api/currency/SHINHAN/JPY
 Accept: application/json
 
 ### 국민은행 환율조회
-GET http://localhost:8080/api/currency/KBSTAR/JPY/2022-11-08
+GET http://localhost:8080/api/currency/KBSTAR/JPY
 Accept: application/json
 
 

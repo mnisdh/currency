@@ -1,6 +1,9 @@
 
 
 ### 실시간 환율 (엔화)
+GET https://query1.finance.yahoo.com/v7/finance/quote?symbols=JPYKRW=X&Interval=1d&region=KR
+
+### 실시간 환율 (엔화)
 GET https://query1.finance.yahoo.com/v7/finance/quote?symbols=JPYKRW=X
 
 
