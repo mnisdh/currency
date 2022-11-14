@@ -32,8 +32,7 @@ data class ExternalWooriCurrencyRequest(
     }
 
     override fun toString(): String {
-        return "BAS_DT=%s&NTC_DIS=%s&INQ_DIS=%s&SELECT_DATE=%s&SELECT_DATEY=%s&SELECT_DATEM=%s&SELECT_DATED=%s"
-            .format(this.BAS_DT, this.NTC_DIS, this.INQ_DIS, this.SELECT_DATE, this.SELECT_DATEY, this.SELECT_DATEM, this.SELECT_DATED)
+        return "BAS_DT=$BAS_DT&NTC_DIS=$NTC_DIS&INQ_DIS=$INQ_DIS&SELECT_DATE=$SELECT_DATE&SELECT_DATEY=$SELECT_DATEY&SELECT_DATEM=$SELECT_DATEM&SELECT_DATED=$SELECT_DATED"
     }
 
 }

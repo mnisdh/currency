@@ -19,7 +19,7 @@ class ExternalShinhanFinanceService(
     private val currencyUrl: String = "https://bank.shinhan.com/comjsp/dataProcess.jsp"
 
     fun getCurrency(currencyType: CurrencyType, exchangeDate: LocalDate): ExternalShinhanCurrencyResponse? {
-        val url = "%s?svr_type=GU&svr_code=F3720".format(currencyUrl)
+        val url = "$currencyUrl?svr_type=GU&svr_code=F3720"
         val request = ExternalShinhanCurrencyRequest.of(exchangeDate, currencyType)
 
         restTemplate.interceptors.add(ClientHttpRequestInterceptor { request: HttpRequest?, body: ByteArray?, execution: ClientHttpRequestExecution ->

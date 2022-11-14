@@ -23,6 +23,12 @@ enum class YahooModuleType(
     INSIDER_HOLDERS("INSIDER_HOLDERS", "insiderHolders", "insiderHolders 개체는 회사 주식의 내부 보유자에 대한 정보를 포함합니다. 이것은 누가 회사의 주식을 소유하고 있는지에 대한 아이디어를 얻는 데 유용합니다."),
     UPGRADE_DOWNGRADE_HISTORY("UPGRADE_DOWNGRADE_HISTORY", "upgradeDowngradeHistory", "upgradeDowngradeHistory 개체는 분석가가 회사 주식에 제공한 업그레이드 및 다운그레이드에 대한 정보를 포함합니다. 이것은 회사의 주식에 대한 분석가의 의견에 대한 아이디어를 얻는 데 유용합니다.");
 
+    companion object {
+        fun toString(moduletypes: Set<YahooModuleType>): String {
+            return moduletypes.joinToString(",") { it.code }
+        }
+    }
+
     override fun getLabel() = this.label
     override fun getDescription() = this.description
     fun getCode() = this.code

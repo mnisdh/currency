@@ -27,8 +27,8 @@ enum class InstitutionType(
 
     fun symbol(from: CurrencyType, to: CurrencyType): String {
         return when(this) {
-            YAHOO -> "%s%s=X".format(from.getName(this), to.getName(this))
-            else -> "%s%s".format(from.getName(this), to.getName(this))
+            YAHOO -> "${from.getName(this)}${to.getName(this)}=X"
+            else -> "${from.getName(this)}${to.getName(this)}"
         }
     }
 
